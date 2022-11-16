@@ -11,3 +11,6 @@
     gap: 4em;
 }
 
+#title {
+    border-bottom: 1px solid black;
+}

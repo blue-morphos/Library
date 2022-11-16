@@ -10,11 +10,27 @@ class Book {
 }
   
 const book = new Book (prompt("Title"), prompt("Author"), prompt("Pages"), prompt("Read?"))
-myLibrary.push(book);
 
-console.log(myLibrary);
+function addBookToLibrary() {
+  myLibrary.push(book);
+}
 
 
-//let info = book.title  + " by " + book.author + ", " + book.pages + " pages. Read: " + book.read;
-document.getElementById("title").innerHTML= book.title; 
-document.getElementById("author").innerHTML= book.author; 
+
+  document.getElementById("title").innerHTML= book.title; 
+  document.getElementById("author").innerHTML= book.author; 
+
+  const container = document.getElementById("container");
+
+document.querySelector('button').addEventListener("click", formFunction)
+function formFunction(){
+  let card = document.createElement("div");
+  card.className = "card";
+  let title = document.createElement("title");
+  let author =  document.createElement("author");
+  card.appendChild(title);
+  card.appendChild(author);
+  const book = new Book (prompt("Title"), prompt("Author"), prompt("Pages"), prompt("Read?"))
+  document.getElementById("title").innerHTML= book.title; 
+  document.getElementById("author").innerHTML= book.author; 
+}
