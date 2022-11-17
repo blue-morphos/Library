@@ -9,7 +9,7 @@ class Book {
   }
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
@@ -17,6 +17,14 @@ const container = document.getElementById("container");
 
 document.querySelector('button').addEventListener("click", formFunction)
 function formFunction(){
+  const book = new Book (prompt("Title"), prompt("Author"), prompt("Pages"), prompt("Read?"));
+  addBookToLibrary(book);
+  displayBook(book);
+}
+
+myLibrary.forEach(displayBook);
+let i = 0;
+function displayBook(){
   let card = document.createElement("div");
     card.className = "card";
       container.appendChild(card);
@@ -26,7 +34,8 @@ function formFunction(){
   let author =  document.createElement("div");
     author.id = "author";
       card.appendChild(author);
-  const book = new Book (prompt("Title"), prompt("Author"), prompt("Pages"), prompt("Read?"))
-  document.getElementById("title").innerHTML= book.title; 
-  document.getElementById("author").innerHTML= book.author; 
+  document.getElementById("title").innerHTML= myLibrary[i].title; 
+  document.getElementById("author").innerHTML= myLibrary[i].author;
+  i++; 
 }
+
