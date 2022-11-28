@@ -1,4 +1,5 @@
 let myLibrary = [];
+let counter = 0;
 
 class Book {
   constructor(title, author, pages, read) {
@@ -16,15 +17,17 @@ function addBookToLibrary(book) {
 const container = document.getElementById("container");
 
 document.querySelector('button').addEventListener("click", formFunction)
+
 function formFunction(){
   const book = new Book (prompt("Title"), prompt("Author"), prompt("Pages"), prompt("Read?"));
   addBookToLibrary(book);
   console.log(myLibrary);
   cardDisplay();
+  counter++;
 }
 
 function cardDisplay(){
-  for (i = 0; i < myLibrary.length; i++){
+  for (i = counter; i < myLibrary.length; i++){
     let card = document.createElement("div");
       card.className="card";
       container.appendChild(card);
