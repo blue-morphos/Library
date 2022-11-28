@@ -32,7 +32,7 @@ function cardDisplay(){
       card.className="card";
       container.appendChild(card);
     let title = document.createElement("div");
-      title.classname = "title";
+      title.setAttribute('class', "title");
       title.innerHTML = myLibrary[i].title;
       card.appendChild(title);
     let author = document.createElement("div");
@@ -45,7 +45,7 @@ function cardDisplay(){
       card.appendChild(pages);
     let read = document.createElement("div");
       read.classname = "pages";
-      read.innerHTML = myLibrary[i].pages; 
+      read.innerHTML = myLibrary[i].read; 
       card.appendChild(read);
   }
 }
