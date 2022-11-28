@@ -10,3 +10,7 @@
     height: 300px;
     gap: 4em;
 }
+
+.title {
+    font-style: italic;
+}
