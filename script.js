@@ -16,8 +16,13 @@ function addBookToLibrary(book) {
 
 const container = document.getElementById("container");
 
-document.querySelector('button').addEventListener("click", formFunction)
+document.querySelector('button').addEventListener("click", createForm)
 
+function createForm(){
+  let form = document.createElement("form");
+    form.setAttribute('class', 'form')
+    container.appendChild(form);
+}
 function formFunction(){
   const book = new Book (prompt("Title"), prompt("Author"), prompt("Pages"), prompt("Read?"));
   addBookToLibrary(book);
