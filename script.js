@@ -16,17 +16,19 @@ function addBookToLibrary(book) {
 
 const container = document.getElementById("container");
 
-document.querySelector('button').addEventListener("click", createForm)
+document.getElementById('new-book-button').addEventListener("click", createForm);
 
 function createForm(){
   let form = document.createElement("form");
     form.setAttribute('class', 'form')
     container.appendChild(form);
   let titleName = document.createElement("input");
+    titleName.setAttribute('id', 'title');
     titleName.setAttribute('type', 'text');
     titleName.setAttribute('value', 'Title');
     form.appendChild(titleName);
   let authorName = document.createElement("input"); 
+    authorName.setAttribute('id', 'author');
     authorName.setAttribute('type', 'text');
     authorName.setAttribute('value', 'Author');
     form.appendChild(authorName);
@@ -35,17 +37,16 @@ function createForm(){
     submitButton.setAttribute('value', 'Submit');
     submitButton.setAttribute('class', 'submitButton');
     form.appendChild(submitButton);
-    submitButton.addEventListener('click', formFunction())
+    submitButton.addEventListener('click', formFunction)
     submitButton.addEventListener("click", function(event){
       event.preventDefault()
     });
-  let formTitle = titleName.innerHTML;
-  let formAuthor = authorName.innerHTML;
 }
 
 function formFunction(){
-  console.log("Ok!");
-  const book = new Book (formTitle, formAuthor, formPages, formRead);
+  let title = document.getElementById('title').value;
+  let author = document.getElementById('author').value;
+  const book = new Book (title, author);
   addBookToLibrary(book);
   cardDisplay();
   counter++;
