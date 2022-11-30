@@ -16,37 +16,18 @@ function addBookToLibrary(book) {
 
 const container = document.getElementById("container");
 
-document.getElementById('new-book-button').addEventListener("click", createForm);
-
-function createForm(){
-  let form = document.createElement("form");
-    form.setAttribute('class', 'form')
-    container.appendChild(form);
-  let titleName = document.createElement("input");
-    titleName.setAttribute('id', 'title');
-    titleName.setAttribute('type', 'text');
-    titleName.setAttribute('value', 'Title');
-    form.appendChild(titleName);
-  let authorName = document.createElement("input"); 
-    authorName.setAttribute('id', 'author');
-    authorName.setAttribute('type', 'text');
-    authorName.setAttribute('value', 'Author');
-    form.appendChild(authorName);
-  let submitButton = document.createElement("input");
-    submitButton.setAttribute('type', 'submit');
-    submitButton.setAttribute('value', 'Submit');
-    submitButton.setAttribute('class', 'submitButton');
-    form.appendChild(submitButton);
-    submitButton.addEventListener('click', formFunction)
-    submitButton.addEventListener("click", function(event){
-      event.preventDefault()
-    });
-}
+let addBook = document.getElementById("add-book");
+  addBook.addEventListener('click', formFunction)
+  addBook.addEventListener("click", function(event){
+    event.preventDefault()
+  });
 
 function formFunction(){
   let title = document.getElementById('title').value;
   let author = document.getElementById('author').value;
-  const book = new Book (title, author);
+  let pages = document.getElementById('pages').value;
+  let read = document.querySelector('input[name="read"]:checked').value;
+  const book = new Book (title, author, pages, read);
   addBookToLibrary(book);
   cardDisplay();
   counter++;
@@ -68,14 +49,14 @@ function cardDisplay(){
       author.setAttribute('class', "author");
       author.innerHTML = "by " + myLibrary[i].author;
       infoContainer.appendChild(author);
+    let pageAndStatus = document.createElement("div");
+      pageAndStatus.setAttribute('class', 'page-and-status');
+      card.appendChild(pageAndStatus)
     let pages = document.createElement("div");
       pages.innerHTML = myLibrary[i].pages; 
-      card.appendChild(pages);
+      pageAndStatus.appendChild(pages);
     let read = document.createElement("div");
       read.innerHTML = myLibrary[i].read; 
-      card.appendChild(read);
+      pageAndStatus.appendChild(read);
   }
 }
-
-
-console.log(myLibrary);

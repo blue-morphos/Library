@@ -9,8 +9,23 @@
     <title>Library</title>
 </head>
 <body>
-    <button id="new-book-button">new book</button>
-    <div id="container"></div>
+    <div id="container">
+        <div class="form">
+            <input type="text" id="title" placeholder="Title">
+            <input type="text" id="author" placeholder="Author">
+            <div id="pages-container">
+                <label for="pages">Pages:</label>
+                <input type="number" name="pages" id="pages">
+            </div>
+            <div id="read">
+                <label for="read:yes">Read</label>
+                <input type="radio" name="read" value="Read">
+                <label for="read:no">Unread</label>
+                <input type="radio" name="read" value="Unread">
+            </div>
+            <input type="submit" value="Add Book" id="add-book">
+        </div>
+    </div>
     </div>
 </body>
 </html>
