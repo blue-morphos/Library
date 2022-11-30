@@ -22,9 +22,30 @@ function createForm(){
   let form = document.createElement("form");
     form.setAttribute('class', 'form')
     container.appendChild(form);
+  let titleName = document.createElement("input");
+    titleName.setAttribute('type', 'text');
+    titleName.setAttribute('value', 'Title');
+    form.appendChild(titleName);
+  let authorName = document.createElement("input"); 
+    authorName.setAttribute('type', 'text');
+    authorName.setAttribute('value', 'Author');
+    form.appendChild(authorName);
+  let submitButton = document.createElement("input");
+    submitButton.setAttribute('type', 'submit');
+    submitButton.setAttribute('value', 'Submit');
+    submitButton.setAttribute('class', 'submitButton');
+    form.appendChild(submitButton);
+    submitButton.addEventListener('click', formFunction())
+    submitButton.addEventListener("click", function(event){
+      event.preventDefault()
+    });
+  let formTitle = titleName.innerHTML;
+  let formAuthor = authorName.innerHTML;
 }
+
 function formFunction(){
-  const book = new Book (prompt("Title"), prompt("Author"), prompt("Pages"), prompt("Read?"));
+  console.log("Ok!");
+  const book = new Book (formTitle, formAuthor, formPages, formRead);
   addBookToLibrary(book);
   cardDisplay();
   counter++;
