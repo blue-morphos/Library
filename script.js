@@ -21,7 +21,6 @@ document.querySelector('button').addEventListener("click", formFunction)
 function formFunction(){
   const book = new Book (prompt("Title"), prompt("Author"), prompt("Pages"), prompt("Read?"));
   addBookToLibrary(book);
-  console.log(myLibrary);
   cardDisplay();
   counter++;
 }
@@ -31,20 +30,21 @@ function cardDisplay(){
     let card = document.createElement("div");
       card.className="card";
       container.appendChild(card);
+    let infoContainer = document.createElement("div")
+      infoContainer.setAttribute('class', "info-container");
+      card.appendChild(infoContainer);
     let title = document.createElement("div");
       title.setAttribute('class', "title");
       title.innerHTML = myLibrary[i].title;
-      card.appendChild(title);
+      infoContainer.appendChild(title);
     let author = document.createElement("div");
-      author.classname = "author";
-      author.innerHTML = myLibrary[i].author;
-      card.appendChild(author);
+      author.setAttribute('class', "author");
+      author.innerHTML = "by " + myLibrary[i].author;
+      infoContainer.appendChild(author);
     let pages = document.createElement("div");
-      pages.classname = "pages";
       pages.innerHTML = myLibrary[i].pages; 
       card.appendChild(pages);
     let read = document.createElement("div");
-      read.classname = "pages";
       read.innerHTML = myLibrary[i].read; 
       card.appendChild(read);
   }
