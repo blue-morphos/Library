@@ -1,5 +1,4 @@
 let myLibrary = [];
-let counter = 0;
 
 class Book {
   constructor(title, author, pages, read) {
@@ -26,7 +25,6 @@ function formFunction(){
   const book = new Book (title, author, pages, read);
   addBookToLibrary(book);
   cardDisplay(book);
-  counter++;
 }
 
 function addBookToLibrary(book) {
