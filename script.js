@@ -10,10 +10,6 @@ class Book {
   }
 }
 
-function addBookToLibrary(book) {
-  myLibrary.push(book);
-}
-
 const container = document.getElementById("container");
 
 let addBook = document.getElementById("add-book");
@@ -32,6 +28,22 @@ function formFunction(){
   cardDisplay(book);
   counter++;
 }
+
+function addBookToLibrary(book) {
+  myLibrary.push(book);
+}
+
+/*
+function removeBookFromLibrary(book){
+  for (i = 0; i > myLibrary.length; i++){
+    if (myLibrary[i].title == book.title){
+      myLibrary.splice(i, 1);
+    }
+  }
+  console.log(myLibrary);
+  console.log(bookLocation);
+}
+*/
 
 function cardDisplay(book){
   let card = document.createElement("div");
@@ -57,37 +69,18 @@ function cardDisplay(book){
     let read = document.createElement("div");
       read.innerHTML = book.read; 
       pageAndStatus.appendChild(read);
+    let removeBookButton= document.createElement("button");
+      let bookLocation = myLibrary.indexOf(book);
+      removeBookButton.addEventListener('click', removeBookFromLibrary);
+      removeBookButton.innerHTML="delete";
+      pageAndStatus.appendChild(removeBookButton);
+
+        function removeBookFromLibrary(){
+          myLibrary.splice(bookLocation, 1);
+          container.removeChild(card);
+        }
 }
 
-myLibrary.forEach(book => {
-  cardDisplay(book)
-});
-/*
-function cardDisplay(){
-  for (i = counter; i < myLibrary.length; i++){
-    let card = document.createElement("div");
-      card.className="card";
-      container.appendChild(card);
-    let infoContainer = document.createElement("div")
-      infoContainer.setAttribute('class', "info-container");
-      card.appendChild(infoContainer);
-    let title = document.createElement("div");
-      title.setAttribute('class', "title");
-      title.innerHTML = myLibrary[i].title;
-      infoContainer.appendChild(title);
-    let author = document.createElement("div");
-      author.setAttribute('class', "author");
-      author.innerHTML = "by " + myLibrary[i].author;
-      infoContainer.appendChild(author);
-    let pageAndStatus = document.createElement("div");
-      pageAndStatus.setAttribute('class', 'page-and-status');
-      card.appendChild(pageAndStatus)
-    let pages = document.createElement("div");
-      pages.innerHTML = myLibrary[i].pages; 
-      pageAndStatus.appendChild(pages);
-    let read = document.createElement("div");
-      read.innerHTML = myLibrary[i].read; 
-      pageAndStatus.appendChild(read);
-  }
+function removeBookFromLibrary(){
+  console.log(bookLocation);
 }
-*/

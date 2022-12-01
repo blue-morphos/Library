@@ -23,6 +23,7 @@ body {
 
 .card {
     justify-content: space-between;
+    border: 4px solid #872d18;
 }
 
 .form {
@@ -41,7 +42,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1em;
+    margin: 1em;
+ 
 }
 .title {
     font-size: x-large;
@@ -60,4 +62,10 @@ body {
     display: flex;
     justify-content: space-around;
     width: 100%;
+}
+
+button {
+    color: #d84727;
+    background-color: #872d18;
+    border: none;
 }
