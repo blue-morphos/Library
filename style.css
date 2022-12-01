@@ -60,14 +60,18 @@ body {
 
 .page-and-status {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
+    color: #d84727;
+    background-color: #872d18;
 }
 
-button, #add-book {
+button, #add-book, #pagesDisplay {
     color: #d84727;
     background-color: #872d18;
     border: none;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 button, #add-book:hover {
     cursor: pointer;

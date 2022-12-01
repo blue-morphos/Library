@@ -50,6 +50,7 @@ function cardDisplay(book){
       pageAndStatus.setAttribute('class', 'page-and-status');
       card.appendChild(pageAndStatus)
     let pages = document.createElement("div");
+      pages.setAttribute('id', 'pagesDisplay');
       pages.innerHTML = book.pages; 
       pageAndStatus.appendChild(pages);
     let read = document.createElement("button");
