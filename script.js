@@ -51,14 +51,16 @@ function cardDisplay(book){
       card.appendChild(pageAndStatus)
     let pages = document.createElement("div");
       pages.setAttribute('id', 'pagesDisplay');
-      pages.innerHTML = book.pages; 
+      pages.innerHTML = book.pages + "p"; 
       pageAndStatus.appendChild(pages);
     let read = document.createElement("button");
-      if (book.read = 1){
-        read.innerHTML = "Read"
+      if (book.read == 1){
+        read.innerHTML = "Read";
+        read.style.color = "green";
       }
-      if (book.read = 2){
-        read.innerHTML = "Unread"
+      else if (book.read == 2){
+        read.innerHTML = "Unread";
+        read.style.color = "red";
       }; 
       read.addEventListener('click', changeStatus)
         function changeStatus(){
@@ -67,19 +69,22 @@ function cardDisplay(book){
             console.log("unread")
             book.read = 2; 
             read.innerHTML = "Unread"
+            read.style.color = "#d84727";
           }
           if (book.read % 2 != 0){
             console.log("read")
             book.read = 1;
             read.innerHTML = "Read";
+            read.style.color = "green";
           }
           console.log(book.read)
         }
       pageAndStatus.appendChild(read);
     let removeBookButton= document.createElement("button");
+        removeBookButton.setAttribute('id', 'removeButton');
       let bookLocation = myLibrary.indexOf(book);
       removeBookButton.addEventListener('click', removeBookFromLibrary);
-      removeBookButton.innerHTML="delete";
+      removeBookButton.innerHTML="x";
       pageAndStatus.appendChild(removeBookButton);
 
         function removeBookFromLibrary(){

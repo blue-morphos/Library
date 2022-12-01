@@ -9,34 +9,34 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-.card, .form {
+.card, .form, .unreadCard, .readCard {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 300px;
     width: 200px;
-    background-color: #d84727;
+    background-color: #e4e4e4;
     color: #343434; 
     margin: 2em;
 
 }
 
-.card {
+.card, .readCard, .unreadCard {
     justify-content: space-between;
-    border: 4px solid #872d18;
+}
+
+.unreadCard {
+    border: 4px solid #d84727;
+}
+
+.readCard {
+    border: 4px solid green;
 }
 
 .form {
     justify-content: space-around;
     box-shadow: 5px 10px #872d18;
 }
-
-#pages-container {
-    display: flex;
-}
-    #pages {
-        width: 4em;
-    }
 
 .info-container {
     display: flex;
@@ -62,17 +62,25 @@ body {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    color: #d84727;
-    background-color: #872d18;
 }
 
 button, #add-book, #pagesDisplay {
-    color: #d84727;
-    background-color: #872d18;
+    color: #343434;
     border: none;
-    margin-left: 1em;
-    margin-right: 1em;
+    background-color: transparent;
+    margin:0.5em;
+}
+
+#pagesDisplay {
+    margin-right: 0;
 }
 button, #add-book:hover {
     cursor: pointer;
+}
+
+#removeButton {
+    color: #343434;
+    border: 1px solid #343434;
+    border-radius: 100%;
+    margin: 0.5em;
 }
