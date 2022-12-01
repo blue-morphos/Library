@@ -52,8 +52,28 @@ function cardDisplay(book){
     let pages = document.createElement("div");
       pages.innerHTML = book.pages; 
       pageAndStatus.appendChild(pages);
-    let read = document.createElement("div");
-      read.innerHTML = book.read; 
+    let read = document.createElement("button");
+      if (book.read = 1){
+        read.innerHTML = "Read"
+      }
+      if (book.read = 2){
+        read.innerHTML = "Unread"
+      }; 
+      read.addEventListener('click', changeStatus)
+        function changeStatus(){
+          book.read++;
+          if (book.read % 2 === 0){
+            console.log("unread")
+            book.read = 2; 
+            read.innerHTML = "Unread"
+          }
+          if (book.read % 2 != 0){
+            console.log("read")
+            book.read = 1;
+            read.innerHTML = "Read";
+          }
+          console.log(book.read)
+        }
       pageAndStatus.appendChild(read);
     let removeBookButton= document.createElement("button");
       let bookLocation = myLibrary.indexOf(book);

@@ -64,8 +64,11 @@ body {
     width: 100%;
 }
 
-button {
+button, #add-book {
     color: #d84727;
     background-color: #872d18;
     border: none;
+}
+button, #add-book:hover {
+    cursor: pointer;
 }
