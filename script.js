@@ -33,18 +33,6 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-/*
-function removeBookFromLibrary(book){
-  for (i = 0; i > myLibrary.length; i++){
-    if (myLibrary[i].title == book.title){
-      myLibrary.splice(i, 1);
-    }
-  }
-  console.log(myLibrary);
-  console.log(bookLocation);
-}
-*/
-
 function cardDisplay(book){
   let card = document.createElement("div");
       card.className="card";
